@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="loginHeaderFont">#4a4a4a</color>
+    <color name="loginEditorBg">#f3f3f3</color>
+    <color name="loginButtonBg">#947437</color>
+    <color name="loginForgotFont">#947437</color>
+    <color name="loginPasswordFont">#7b8d93</color>
+<color name="login_with_button">#e4dee6</color>
+<color name="login_with_existing">#bababa</color>
+<color name="not_member_text">#d1d1d1</color>
+    <color name="register_text">#ff003a</color>
+</resources>
