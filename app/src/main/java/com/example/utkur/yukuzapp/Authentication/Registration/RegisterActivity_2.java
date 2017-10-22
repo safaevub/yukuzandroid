@@ -12,7 +12,7 @@ public class RegisterActivity_2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_2);
+        setContentView(R.layout.activity_register_pg_2);
 
         close = (ImageButton) findViewById(R.id.number_close_buttonXML);
         next = (ImageButton) findViewById(R.id.number_next_stepXML);
@@ -20,15 +20,15 @@ public class RegisterActivity_2 extends AppCompatActivity {
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cl = new Intent(RegisterActivity_2.this, MainActivity.class);
-                startActivity(cl);
+                finish();
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent nx = new Intent(RegisterActivity_2.this, RegisterActivity_3.class);
+                Intent nx = new Intent(RegisterActivity_2.this, MainActivity.class);
                 startActivity(nx);
+                finish();
             }
         });
     }

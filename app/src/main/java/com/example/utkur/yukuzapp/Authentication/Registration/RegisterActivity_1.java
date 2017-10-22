@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ public class RegisterActivity_1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_1);
+        setContentView(R.layout.activity_register_pg_1);
 
         terms = (TextView) findViewById(R.id.term_conditionsXML);
         back = (ImageButton) findViewById(R.id.close_buttonXML);
@@ -31,13 +30,13 @@ public class RegisterActivity_1 extends AppCompatActivity {
         user_password = (EditText) findViewById(R.id.user_password_textXML);
 
 
-        terms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent term = new Intent(RegisterActivity_1.this, Term_And_ConditionActivity.class);
-           startActivity(term);
-            }
-        });
+//        terms.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent term = new Intent(RegisterActivity_1.this, Term_And_ConditionActivity.class);
+//           startActivity(term);
+//            }
+//        });
         visible.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -54,8 +53,7 @@ public class RegisterActivity_1 extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent main_int = new Intent(RegisterActivity_1.this, MainActivity.class);
-                startActivity(main_int);
+                finish();
             }
         });
         next_step.setOnClickListener(new View.OnClickListener() {

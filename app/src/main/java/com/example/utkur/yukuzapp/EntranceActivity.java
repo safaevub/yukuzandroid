@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.utkur.yukuzapp.Authentication.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
     Button login_btn;
     TextView reg_text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

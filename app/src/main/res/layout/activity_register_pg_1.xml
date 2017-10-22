@@ -4,21 +4,19 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     tools:context="com.example.utkur.yukuzapp.RegisterActivity_1">
 
     <ImageButton
         android:id="@+id/close_buttonXML"
         android:src="@mipmap/close_icon"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
         android:layout_width="wrap_content"
         android:text="@string/register_page"
-        android:textColor="#100b0b"
-        android:layout_marginTop="50dp"
-        android:textSize="23sp"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
         android:layout_gravity="center"
         android:layout_height="wrap_content" />
 
@@ -46,6 +44,7 @@
         android:textAlignment="center"
         android:inputType="text"
         android:textSize="17sp"
+        android:layout_height="wrap_content"
         android:background="@color/loginEditorBg"
         android:hint="@string/first_name_hint"
         />
@@ -67,39 +66,43 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
-    <EditText
-        android:layout_width="235dp"
-        android:id="@+id/user_password_textXML"
-        style="@style/RegisterEditorStyle"
-        android:hint="@string/password_hint"
-        android:textSize="17sp"
-        android:textAlignment="center"
-        android:background="@color/loginEditorBg"
-        android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/user_password_textXML"
+            style="@style/RegisterEditorStyle"
+            android:layout_width="235dp"
+            android:background="@color/loginEditorBg"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textSize="17sp" />
+
         <CheckBox
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:id="@+id/register_make_visibleXML"
             tools:ignore="ContentDescription"
-            android:background="@color/loginEditorBg"
+            android:background="@color/white"
             />
     </LinearLayout>
+
     <TextView
         android:id="@+id/term_conditionsXML"
         android:layout_width="190sp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:textColor="@color/login_with_existing"
-        android:textSize="14sp"
         android:text="@string/terms_conditions"
         android:textAlignment="center"
-        android:layout_height="wrap_content" />
+        android:textColor="@color/login_with_existing"
+        android:textSize="14sp" />
+
     <ImageButton
         android:id="@+id/register_next_stepXML"
         android:src="@mipmap/next_step"
         android:layout_gravity="right"
         android:layout_marginTop="40dp"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     tools:context="com.example.utkur.yukuzapp.RegisterActivity_2">
 
     <ImageButton
         android:id="@+id/number_close_buttonXML"
         android:src="@mipmap/close_icon"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/white"
         tools:ignore="ContentDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -44,7 +44,7 @@
         android:layout_gravity="end"
         android:layout_marginTop="50dp"
         tools:ignore="ContentDescription"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/white"
         />
 
 

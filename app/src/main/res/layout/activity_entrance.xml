@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.utkur.yukuzapp.MainActivity">
+<ImageView
+    android:layout_width="150dp"
+    android:layout_height="210dp"
+        android:layout_marginTop="40dp"
+    android:src="@drawable/yukuz_icon_1"
+    android:layout_gravity="center"
+    />
+
+    <TextView
+        android:layout_width="190sp"
+        android:layout_height="wrap_content"
+        android:text="@string/login_info"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+
+         />
+    <Button
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/login_with_acc_buttonXML"
+        android:text="@string/login_with_existing_account"
+        android:textColor="@color/login_with_existing"
+        android:backgroundTint="@color/login_with_button"
+        style="@style/loginEditorStyle"
+        android:layout_gravity="center"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/not_member_text"
+    android:layout_gravity="center"
+    android:layout_marginTop="50dp"
+    android:textStyle="bold"
+    android:textColor="@color/not_member_text"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/register_text"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        android:textColor="@color/register_text"
+        android:text="@string/register_text"/>
+</LinearLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "966531790894",
+    "firebase_url": "https://yukuz-482b4.firebaseio.com",
+    "project_id": "yukuz-482b4",
+    "storage_bucket": "yukuz-482b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966531790894:android:9eb23ca3312de9c4",
+        "android_client_info": {
+          "package_name": "com.example.utkur.yukuzapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966531790894-qg7i0t7elb1tl25vc1hq4qk6os64e574.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5HihKmuqSjoq0stG_JIEEIl3GS0bZz-s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
