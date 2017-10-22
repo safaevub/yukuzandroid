@@ -1,71 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:background="@color/white"
-    tools:context="com.example.utkur.yukuzapp.RegisterActivity_1">
+    android:orientation="vertical"
+    tools:context="com.example.utkur.yukuzapp.Authentication.Registration.RegisterActivity_1">
 
     <ImageButton
         android:id="@+id/close_buttonXML"
-        android:src="@mipmap/close_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:src="@mipmap/close_icon" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:text="@string/register_page"
         style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_height="wrap_content" />
+        android:text="@string/register_page" />
 
     <EditText
-        android:layout_gravity="center"
-        android:layout_width="270dp"
         android:id="@+id/user_email_textXML"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="35dp"
-        android:textSize="17sp"
         style="@style/RegisterEditorStyle"
-        android:textAlignment="center"
+        android:layout_width="270dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:background="@color/loginEditorBg"
         android:hint="@string/email_hint"
-        android:background="@color/loginEditorBg"/>
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textSize="17sp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
-    <EditText
-        android:layout_width="130dp"
-        android:id="@+id/user_first_textXML"
-        style="@style/RegisterEditorStyle"
-        android:textAlignment="center"
-        android:inputType="text"
-        android:textSize="17sp"
-        android:layout_height="wrap_content"
-        android:background="@color/loginEditorBg"
-        android:hint="@string/first_name_hint"
-        />
 
-    <EditText
-        android:layout_width="130dp"
-        android:id="@+id/user_last_textXML"
-        android:layout_marginStart="10dp"
-        android:hint="@string/last_name_hint"
-        android:textAlignment="center"
-        android:textSize="17sp"
-        android:inputType="text"
-        android:background="@color/loginEditorBg"
-        style="@style/RegisterEditorStyle"
-        />
+        <EditText
+            android:id="@+id/user_first_textXML"
+            style="@style/RegisterEditorStyle"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@color/loginEditorBg"
+            android:hint="@string/first_name_hint"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/user_last_textXML"
+            style="@style/RegisterEditorStyle"
+            android:layout_width="130dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/loginEditorBg"
+            android:hint="@string/last_name_hint"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="17sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="270dp"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
 
         <EditText
             android:id="@+id/user_password_textXML"
@@ -77,13 +80,29 @@
             android:textAlignment="center"
             android:textSize="17sp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            style="@style/RegisterEditorStyle"
+            android:layout_width="235dp"
+            android:background="@color/loginEditorBg"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textSize="17sp" />
+
         <CheckBox
+            android:id="@+id/register_make_visibleXML"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:id="@+id/register_make_visibleXML"
-            tools:ignore="ContentDescription"
             android:background="@color/white"
-            />
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
     <TextView
@@ -99,10 +118,10 @@
 
     <ImageButton
         android:id="@+id/register_next_stepXML"
-        android:src="@mipmap/next_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:src="@mipmap/next_step" />
 </LinearLayout>

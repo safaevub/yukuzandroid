@@ -1,4 +1,4 @@
-package com.example.utkur.yukuzapp;
+package com.example.utkur.yukuzapp.Authentication.Registration;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.utkur.yukuzapp.R;
 
 public class RegisterActivity_1 extends AppCompatActivity {
     CheckBox visible;

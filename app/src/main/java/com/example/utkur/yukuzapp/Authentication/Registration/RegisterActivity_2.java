@@ -1,10 +1,13 @@
-package com.example.utkur.yukuzapp;
+package com.example.utkur.yukuzapp.Authentication.Registration;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+import com.example.utkur.yukuzapp.R;
 
 public class RegisterActivity_2 extends AppCompatActivity {
     ImageButton close;

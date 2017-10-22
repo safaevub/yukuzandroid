@@ -9,11 +9,12 @@
     <string name="login_with_existing_account">login with your existing account</string>
     <string name="register_text"><u>register as a new user</u></string>
     <string name="not_member_text">Not a member yet?</string>
-    <string name="register_page">Register yourself</string>
+    <string name="register_page">Sign In</string>
     <string name="terms_conditions">By registering to yuk.uz, you accept our terms and will receive communication from yuk.uz</string>
     <string name="first_name_hint">First name</string>
     <string name="last_name_hint">Last name</string>
     <string name="mobile_number_hint">   eg. +998 90 987 6543 </string>
+    <string name="ssn"> eg. 423657954 </string>
     <string name="Mobile_number">Enter your mobile number for better communication </string>
     <string name="title_activity_bottom_action_bar">BottomActionBarActivity</string>
     <string name="title_home">Home</string>
@@ -22,5 +23,26 @@
     <string name="enter_mail_hint">  Email Address </string>
     <string name="forgot_password_page"> Forgot your Password?</string>
     <string name="password_resent_message">    Type your email address and we will send you a code that you can use to reset your password.</string>
-<string name="resent_button_text"> SEND PASSWORD RESET LINK >> </string>
+    <string name="resent_button_text"> SEND PASSWORD RESET LINK >> </string>
+    <string name="title_activity_login">Sign in</string>
+
+
+    <string name="default_req_title">Truck needed</string>
+    <string name="def_time">13:48 Oct 8 2017</string>
+    <string name="def_description">lorem ipsum daler google help wassasas great job master master he he</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email or Username</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+    <!--post order defaults-->
+    <string name="post_title">One tefal</string>
 </resources>

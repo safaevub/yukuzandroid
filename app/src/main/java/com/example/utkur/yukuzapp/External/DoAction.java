@@ -1,4 +1,4 @@
-package uz.android.muhammadjon_tohirov.turbo_test_boss;
+package com.example.utkur.yukuzapp.External;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -20,7 +20,7 @@ import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by M_hacker on 06.12.2016.
+ * Created by Mukhammadjon Tokhirov on 06.12.2016.
  */
 public class DoAction {
     private static String TAG = "DO ACTION";
@@ -58,31 +58,31 @@ public class DoAction {
 
     public static boolean loadImage(String url, Bitmap b) {
 
-            AsyncTask<String, Void, Bitmap> as = new AsyncTask<String, Void, Bitmap>(){
-                @Override
-                protected void onPostExecute(Bitmap bitmap) {
-                    super.onPostExecute(bitmap);
-                }
+        AsyncTask<String, Void, Bitmap> as = new AsyncTask<String, Void, Bitmap>() {
+            @Override
+            protected void onPostExecute(Bitmap bitmap) {
+                super.onPostExecute(bitmap);
+            }
 
-                @Override
-                protected Bitmap doInBackground(String... strings) {
-                    try {
-                        URLConnection conn = null;
-                        URL u = new URL(strings[0]);
-                        conn = u.openConnection();
-                        conn.connect();
-                        InputStream istream = conn.getInputStream();
-                        BufferedInputStream bis = new BufferedInputStream(istream);
-                        bis.close();
-                        istream.close();
-                        Log.e("trying", "for url " + strings[0]);
-                        return BitmapFactory.decodeStream(bis);
-                    } catch (Exception e) {
-                        Log.e("failed", "for url "+strings[0]);
-                        return null;
-                    }
+            @Override
+            protected Bitmap doInBackground(String... strings) {
+                try {
+                    URLConnection conn = null;
+                    URL u = new URL(strings[0]);
+                    conn = u.openConnection();
+                    conn.connect();
+                    InputStream istream = conn.getInputStream();
+                    BufferedInputStream bis = new BufferedInputStream(istream);
+                    bis.close();
+                    istream.close();
+                    Log.e("trying", "for url " + strings[0]);
+                    return BitmapFactory.decodeStream(bis);
+                } catch (Exception e) {
+                    Log.e("failed", "for url " + strings[0]);
+                    return null;
                 }
-            };
+            }
+        };
         as.execute(url);
         return true;
     }
@@ -93,6 +93,5 @@ public class DoAction {
         boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
         return isConnected;
     }
-
 
 }

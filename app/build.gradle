@@ -24,8 +24,21 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
+
+
+
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:26.+'
+    compile 'com.android.support:design:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    // extra lib config
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile group: 'com.koushikdutta.ion', name: 'ion', version: '2.1.6'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    // firebase config
+    compile 'com.google.firebase:firebase-core:11.4.2'
+    compile 'com.google.firebase:firebase-messaging:11.4.2'
+    compile 'com.firebase:firebase-jobdispatcher:0.8.4'
 }
+apply plugin: 'com.google.gms.google-services'

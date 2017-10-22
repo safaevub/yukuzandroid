@@ -5,4 +5,5 @@ package com.example.utkur.yukuzapp.MainDirectory.Pages;
  */
 
 public class OrdersFragment {
+
 }

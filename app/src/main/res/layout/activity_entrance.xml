@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context="com.example.utkur.yukuzapp.MainActivity">
+    tools:context="com.example.utkur.yukuzapp.EntranceActivity">
 <ImageView
     android:layout_width="150dp"
     android:layout_height="210dp"
