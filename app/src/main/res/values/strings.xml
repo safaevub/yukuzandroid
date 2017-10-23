@@ -20,6 +20,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
     <string name="enter_mail_hint">  Email Address </string>
     <string name="forgot_password_page"> Forgot your Password?</string>
     <string name="password_resent_message">    Type your email address and we will send you a code that you can use to reset your password.</string>
@@ -45,4 +46,5 @@
     <string name="title_activity_main">MainActivity</string>
     <!--post order defaults-->
     <string name="post_title">One tefal</string>
+    <string name="log_out">Log out</string>
 </resources>
