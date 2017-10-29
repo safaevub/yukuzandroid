@@ -23,9 +23,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/user_name"
+                style="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/def_description" />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="James Bond" />
 
         </LinearLayout>
     </LinearLayout>
@@ -62,20 +66,28 @@
                         android:id="@+id/frame_posts"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="google.com" />
-                    </LinearLayout>
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:id="@+id/frame_about"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingRight="16dp">
 
+                        <TextView
+                            android:id="@+id/ssn_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="1212124" />
+
+                        <TextView
+                            android:id="@+id/phone_number_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="+998935741369" />
                     </LinearLayout>
 
                     <LinearLayout

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.utkur.yukuzapp">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -9,6 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -26,6 +28,10 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature
+        android:glEsVersion="0x0020000"
+        android:required="true"
+        tools:ignore="ManifestOrder" />
 
     <application
         android:allowBackup="true"
@@ -44,9 +50,10 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDZ5VnFid2Zv5hCKRCVHR7btlJ4A4Gebrk" />
+            android:name="geo.API_KEY"
+            android:value="AIzaSyBKWaDWjF2zjE0OoCTGGy3ft_cuEe6ZJbU" />
         <!-- <provider -->
         <!-- android:name="com.facebook.FacebookContentProvider" -->
         <!-- android:authorities="com.facebook.app.FacebookContentProvider1234" -->
@@ -82,7 +89,7 @@
 
         <activity
             android:name=".EntranceActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Authentication.Registration.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -94,7 +101,7 @@
         <activity
             android:name=".Authentication.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.ActionBarStyle"></activity>
+            android:theme="@style/AppTheme.ActionBarStyle" />
         <activity
             android:name=".MainDirectory.MainActivity"
             android:label="@string/app_name"
@@ -121,21 +128,13 @@
             android:name=".TestCases.RecyclerViewTest"
             android:label="@string/title_activity_recycler_view_test"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
             android:name=".MainDirectory.AddressSelectorActivity"
-            android:label="@string/title_activity_address_selector"></activity>
+            android:label="@string/title_activity_address_selector" />
     </application>
 
 </manifest>

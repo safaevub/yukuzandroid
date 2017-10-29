@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.example.utkur.yukuzapp.Authentication.LoginActivity;
 import com.example.utkur.yukuzapp.EntranceActivity;
 import com.example.utkur.yukuzapp.External.DoAction;
+import com.example.utkur.yukuzapp.MainDirectory.Pages.Deliveries;
 import com.example.utkur.yukuzapp.MainDirectory.Pages.RelatedToDriver.HomeForDriver;
 import com.example.utkur.yukuzapp.MainDirectory.Pages.RelatedToPerson.HomeForPerson;
 import com.example.utkur.yukuzapp.MainDirectory.Pages.RelatedToPerson.PersonProfile;
@@ -71,7 +72,10 @@ public class MainActivity extends AppCompatActivity {
                         ft.replace(R.id.working_fragment_location, fr).commit();
                         return true;
                     case R.id.navigation_dashboard:
-                        getSupportActionBar().setTitle(R.string.title_dashboard);
+                        getSupportActionBar().setTitle(R.string.title_delivery);
+                        fr = new Deliveries();
+                        ft = getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.working_fragment_location, fr).commit();
                         return true;
                     case R.id.navigation_notifications:
                         getSupportActionBar().setTitle(R.string.title_notifications);
