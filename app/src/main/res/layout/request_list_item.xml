@@ -20,7 +20,7 @@
         android:text="@string/def_description" />
 
     <TextView
-        style="@style/TextAppearance.StatusBar.EventContent.Time"
+        style="@android:style/TextAppearance.Material.Notification.Time"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_width="wrap_content"

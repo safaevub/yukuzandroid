@@ -1,69 +1,101 @@
 package com.example.utkur.yukuzapp.Authentication.Registration;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.utkur.yukuzapp.Module.Statics;
 import com.example.utkur.yukuzapp.R;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
-public class RegisterActivity_1 extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class RegisterActivity_1 extends Fragment implements RegCommunicator {
+
+    @BindView(R.id.user_email_textXML)
+    EditText email;
+
+    @BindView(R.id.user_first_textXML)
+    EditText first_name;
+
+    @BindView(R.id.user_last_textXML)
+    EditText last_name;
+
+    @BindView(R.id.user_password_textXML)
+    EditText password;
+
+    @BindView(R.id.user_password_textXML1)
+    EditText password_repeated;
+
+    @BindView(R.id.register_make_visibleXML)
     CheckBox visible;
-    EditText user_password;
-    ImageButton back;
-    ImageButton next_step;
-    TextView terms;
+    private String TAG = "Registration page 1";
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_pg_1);
-
-        terms = (TextView) findViewById(R.id.term_conditionsXML);
-        back = (ImageButton) findViewById(R.id.close_buttonXML);
-        next_step = (ImageButton) findViewById(R.id.register_next_stepXML);
-        visible= (CheckBox) findViewById(R.id.register_make_visibleXML);
-        user_password = (EditText) findViewById(R.id.user_password_textXML);
-
-
-//        terms.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent term = new Intent(RegisterActivity_1.this, Term_And_ConditionActivity.class);
-//           startActivity(term);
-//            }
-//        });
-        visible.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_register_pg_1, container, false);
+        ButterKnife.bind(this, view);
+        visible.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (!b) {
+            public void onClick(View view) {
+                if (visible.isChecked()) {
                     // show password
-                    user_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    password.setTransformationMethod(null);
+                    password_repeated.setTransformationMethod(null);
+
                 } else {
                     // hide password
-                    user_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    password_repeated.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 }
             }
         });
+        password_repeated.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-        back.setOnClickListener(new View.OnClickListener() {
+            }
+
             @Override
-            public void onClick(View view) {
-                finish();
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!password.getText().toString().equals(password_repeated.getText().toString())) {
+                    password.setTextColor(Color.RED);
+                    password_repeated.setTextColor(Color.RED);
+                } else {
+                    password.setTextColor(Color.BLACK);
+                    password_repeated.setTextColor(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
-        next_step.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent next = new Intent(RegisterActivity_1.this,RegisterActivity_2.class);
-                startActivity(next);
-            }
-        });
+        return view;
+    }
+
+
+    @Override
+    public boolean onSubmit() {
+        return !(email.getText().toString().equals("") || first_name.
+                getText().toString().equals("") || last_name.getText().toString().equals("")
+                || password.getText().toString().equals("") || password_repeated.getText().toString().equals(""));
+
     }
 }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "966531790894-gq6ubbtgt6bbu4f4jsouectt61deottd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.utkur.yukuzapp",
+            "certificate_hash": "f7a9e98e5bb46b51a649c493f54b4027c52f8f68"
+          }
+        },
+        {
           "client_id": "966531790894-qg7i0t7elb1tl25vc1hq4qk6os64e574.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966531790894-qg7i0t7elb1tl25vc1hq4qk6os64e574.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

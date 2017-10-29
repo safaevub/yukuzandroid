@@ -1,18 +1,19 @@
 <resources>
-    <string name="app_name">yuk.uz</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
+    <string name="app_name">yukuz</string>
+    <string name="email_hint">somebody@mailbox.uz</string>
+    <string name="password_hint">Password*</string>
     <string name="login_button">Login</string>
+    <string name="submit">Submit</string>
     <string name="forgot_password">Forgot your password?</string>
     <string name="login_account">Login to your account</string>
     <string name="login_info">To access your profile you need to login first</string>
     <string name="login_with_existing_account">login with your existing account</string>
-    <string name="register_text"><u>register as a new user</u></string>
+    <string name="register"><u>register</u></string>
     <string name="not_member_text">Not a member yet?</string>
-    <string name="register_page">Sign In</string>
+    <string name="register_page">Registeration</string>
     <string name="terms_conditions">By registering to yuk.uz, you accept our terms and will receive communication from yuk.uz</string>
-    <string name="first_name_hint">First name</string>
-    <string name="last_name_hint">Last name</string>
+    <string name="first_name_hint">First name *</string>
+    <string name="last_name_hint">Last name *</string>
     <string name="mobile_number_hint">   eg. +998 90 987 6543 </string>
     <string name="ssn"> eg. 423657954 </string>
     <string name="Mobile_number">Enter your mobile number for better communication </string>
@@ -43,8 +44,15 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">yukuz</string>
     <!--post order defaults-->
     <string name="post_title">One tefal</string>
     <string name="log_out">Log out</string>
+    <string name="title_activity_recycler_view_test">RecyclerViewTest</string>
+
+    <!--facebook config-->
+    <string name="facebook_app_id">308787122932281</string>
+    <string name="fb_login_protocol_scheme">fb308787122932281</string>
+    <string name="title_activity_address_selector">Map</string>
+
 </resources>

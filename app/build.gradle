@@ -2,13 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.example.utkur.yukuzapp"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,30 +19,35 @@ android {
         }
     }
 }
-
+repositories {
+    mavenCentral()
+}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-maps:11.4.2'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-
-
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    // configure facebook
+//    compile 'com.facebook.android:facebook-login:[4,5)'
+//    compile 'com.facebook.android:facebook-android-sdk:4.5.0'
     // extra lib config
+    compile 'com.koushikdutta.ion:ion:2.1.6'
+    compile 'com.google.code.gson:gson:2.8.0'
+    // firebase config
+    //noinspection GradleCompatible
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:26.1.0'
     compile 'com.jakewharton:butterknife:8.8.1'
-    compile group: 'com.koushikdutta.ion', name: 'ion', version: '2.1.6'
-    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.1.2'
     compile 'de.hdodenhof:circleimageview:2.2.0'
-
-    // firebase config
+    //noinspection GradleCompatible
     compile 'com.google.firebase:firebase-core:11.4.2'
     compile 'com.google.firebase:firebase-messaging:11.4.2'
     compile 'com.firebase:firebase-jobdispatcher:0.8.4'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.google.android.gms:play-services:11.4.2'
 }
 apply plugin: 'com.google.gms.google-services'

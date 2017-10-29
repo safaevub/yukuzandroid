@@ -7,7 +7,13 @@ package com.example.utkur.yukuzapp.Module;
 public class Statics {
     public static String serverURL = "http://192.168.1.133:8000/";
     public static int pref_code = 1000;
+    public static int RESULT_LOAD_IMAGE = 1000;
     public static class URL {
         public static String getToeknURL = serverURL + "api-gettoken/";
+
+        public static class REST {
+            public static String register = serverURL + "rest/register/";
+            public static String add_person = serverURL + "rest/personlist/";
+        }
     }
 }

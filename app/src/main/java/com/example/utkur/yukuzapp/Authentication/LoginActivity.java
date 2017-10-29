@@ -2,6 +2,7 @@ package com.example.utkur.yukuzapp.Authentication;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,8 +39,15 @@ import java.util.List;
 
 import com.example.utkur.yukuzapp.External.DoAction;
 import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.Statics;
 import com.example.utkur.yukuzapp.R;
+//import com.facebook.CallbackManager;
+//import com.facebook.FacebookCallback;
+//import com.facebook.FacebookException;
+//import com.facebook.FacebookSdk;
+//import com.facebook.login.LoginResult;
+//import com.facebook.login.widget.LoginButton;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -82,6 +90,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @BindView(R.id.login_form)
     View mLoginFormView;
 
+//    @BindView(R.id.login_button)
+//    LoginButton fb_login;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -90,6 +101,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login_m);
         ButterKnife.bind(this);
         // Set up the login form.
@@ -113,14 +125,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 attemptLogin();
             }
         });
+        ///////////////
 
-        SharedPreferences preferences = getSharedPreferences("token", Statics.pref_code);
-        String token = preferences.getString("token", "null");
-        if (!token.equals("null")) {
-            Intent intent = new Intent(getBaseContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+//        CallbackManager manager = CallbackManager.Factory.create();
+//        fb_login.registerCallback(manager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                Toast.makeText(LoginActivity.this, loginResult.getAccessToken() + " sucecss", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                Toast.makeText(LoginActivity.this, " called ", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onError(FacebookException error) {
+//                Toast.makeText(LoginActivity.this, error.getMessage() + " error", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        ///////////////
+
     }
 
     private void populateAutoComplete() {
@@ -232,8 +257,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     if (result == null) {
                                         Log.d(TAG, "error: " + e);
                                     } else {
-                                        SharedPreferences preferences = getSharedPreferences("token", Statics.pref_code);
-                                        preferences.edit().putString("token", result.get("token").getAsString()).apply();
+                                        @SuppressLint("WrongConstant") SharedPreferences preferences = getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code);
+                                        preferences.edit().putString(Personal.ID_TOKEN, result.get("token").getAsString()).apply();
                                         Toast.makeText(LoginActivity.this, "Successfully logged in as " + result.get("token").getAsString()
                                                 , Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getBaseContext(), MainActivity.class);

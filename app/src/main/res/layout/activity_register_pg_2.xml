@@ -7,82 +7,91 @@
     android:orientation="vertical"
     tools:context="com.example.utkur.yukuzapp.Authentication.Registration.RegisterActivity_2">
 
-    <ImageButton
-        android:id="@+id/number_close_buttonXML"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|left"
-        android:backgroundTint="@color/white"
-        android:src="@mipmap/close_icon"
-        tools:ignore="ContentDescription" />
-
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/register_extra"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            style="@style/TextAppearance.AppCompat.Notification.Info"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="Fill up these fields to fully operate your profile"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar_view"
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:src="@drawable/ic_add_a_photo_black_24dp" />
 
-            <ImageView
-                android:id="@+id/textView"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".4"
-                android:gravity="center"
-                android:src="@drawable/yukuz_icon_1" />
+        <!--<RadioGroup-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:weightSum="1">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:orientation="vertical">
+        <!--<RadioButton-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight=".5"-->
+        <!--android:text="Costumer" />-->
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:text="select avatar" />
-
-            </LinearLayout>
-        </LinearLayout>
+        <!--<RadioButton-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight=".5"-->
+        <!--android:text="Driver" />-->
+        <!--</RadioGroup>-->
 
         <EditText
-            android:layout_width="240dp"
-            android:layout_height="45dp"
+            android:id="@+id/ssn_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/loginEditorBg"
             android:hint="@string/ssn"
-            android:inputType="numberDecimal"
-            android:textAlignment="center" />
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/user_mobile_numberXML"
-            android:layout_width="240dp"
-            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/loginEditorBg"
             android:hint="@string/mobile_number_hint"
-            android:inputType="numberDecimal"
-            android:textAlignment="center" />
+            android:inputType="numberDecimal" />
 
+        <LinearLayout
+            android:id="@+id/driver_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit_extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:background="@color/loginButtonBg"
+            android:text="@string/submit"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
 
     </LinearLayout>
-
-
-    <ImageButton
-        android:id="@+id/number_next_stepXML"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="@color/white"
-        android:src="@mipmap/next_step"
-        tools:ignore="ContentDescription" />
 
 
 </FrameLayout>

@@ -99,7 +99,8 @@
                         android:imeOptions="actionUnspecified"
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        tools:ignore="InvalidImeActionId" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -114,34 +115,21 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="1">
 
-                <CheckBox
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight=".5"
-                    android:checked="false"
-                    android:text="As Carrier" />
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="@style/loginEditorStyle"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@color/loginButtonBg"
+                android:gravity="center"
+                android:minWidth="128dp"
+                android:text="@string/login_button"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
 
-                <Button
-                    android:id="@+id/email_sign_in_button"
-                    style="@style/loginEditorStyle"
-                    android:layout_width="0dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    android:layout_weight=".5"
-                    android:background="@color/loginButtonBg"
-                    android:text="@string/login_button"
-                    android:textAlignment="center"
-                    android:textColor="#ffffff"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/forgot_passwordXML"
@@ -151,6 +139,13 @@
                 android:text="@string/forgot_password"
                 android:textColor="@color/loginForgotFont"
                 android:textSize="16sp" />
+            <!--<com.facebook.login.widget.LoginButton-->
+            <!--android:id="@+id/login_button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:layout_marginBottom="30dp" />-->
         </LinearLayout>
         <!--</RelativeLayout>-->
     </ScrollView>

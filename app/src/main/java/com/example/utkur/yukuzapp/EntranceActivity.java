@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.utkur.yukuzapp.Authentication.LoginActivity;
-import com.example.utkur.yukuzapp.Authentication.Registration.RegisterActivity_1;
+import com.example.utkur.yukuzapp.Authentication.Registration.RegisterActivity;
 
 public class EntranceActivity extends AppCompatActivity {
     Button login_btn;
@@ -24,7 +24,7 @@ public class EntranceActivity extends AppCompatActivity {
         reg_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent reg_int = new Intent(EntranceActivity.this, RegisterActivity_1.class);
+                Intent reg_int = new Intent(EntranceActivity.this, RegisterActivity.class);
                 startActivity(reg_int);
             }
         });
