@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,7 +21,7 @@
     <permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="com.google.android.providers.gsf.permission.    READ_GSERVICES" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -28,6 +29,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-feature
         android:glEsVersion="0x0020000"
         android:required="true"
@@ -40,101 +42,104 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.ActionBarStyle">
-
-        <!-- from https://www.firebase.google.com -->
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages. See README(https://goo.gl/l4GJaQ) for more. -->
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@color/colorPrimary" />
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
-        <meta-data
-            android:name="geo.API_KEY"
-            android:value="AIzaSyBKWaDWjF2zjE0OoCTGGy3ft_cuEe6ZJbU" />
-        <!-- <provider -->
-        <!-- android:name="com.facebook.FacebookContentProvider" -->
-        <!-- android:authorities="com.facebook.app.FacebookContentProvider1234" -->
-        <!-- android:exported="true" /> -->
-
-
-        <!-- <activity -->
-        <!-- android:name="com.facebook.FacebookActivity" -->
-        <!-- android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" -->
-        <!-- android:label="@string/app_name" /> -->
-        <!-- <activity -->
-        <!-- android:name="com.facebook.CustomTabActivity" -->
-        <!-- android:exported="true"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.VIEW" /> -->
-
-
-        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
-        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
-
-
-        <!-- <data android:scheme="@string/fb_login_protocol_scheme" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
-        <!--
-             Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more.
-        -->
+        android:theme="@style/AppTheme.ActionBarStyle"
+        tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
-        <!-- from https://www.firebase.google.com -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_ic_notification" />
 
         <activity
             android:name=".EntranceActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Authentication.Registration.RegisterActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name=".MainDirectory.Pages.RelatedToPerson.PersonProfile"
             android:label="@string/app_name"
-            android:parentActivityName=".MainDirectory.MainActivity" />
+            android:parentActivityName=".MainDirectory.MainActivityV2"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainDirectory.MainActivityV2" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA0j7zFcmUOx2BrIEb55Wj5evRsG0Cvjdw" />
+
         <activity android:name=".ForgotPasswordActivity" />
+
         <activity
             android:name=".Authentication.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.ActionBarStyle" />
+            android:theme="@style/AppTheme.ActionBarStyle"
+            tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".MainDirectory.MainActivity"
+            android:name=".MainDirectory.MainActivityV2"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.ActionBarStyle">
+            android:theme="@style/AppTheme.ActionBarStyle"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!--<meta-data-->
+            <!--android:name="android.support.PARENT_ACTIVITY"-->
+            <!--android:value=".MainDirectory.MainActivityV2" />-->
         </activity>
 
-        <service android:name=".External.FireBNotifService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name=".External.FireBNotifIdService">
+        <activity
+            android:name=".MainDirectory.AddressSelectorActivity"
+            android:label="@string/title_activity_address_selector"
+            android:theme="@style/AppTheme.ActionBarStyle"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".MainDirectory.ViewEditOrderActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".MainDirectory.CreateOrder.FillBasics"
+            android:label="Create Order"
+            android:parentActivityName=".MainDirectory.MainActivityV2"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainDirectory.MainActivityV2" />
+        </activity>
+        <activity
+            android:name=".MainDirectory.Pages.RelatedToDriver.FillDriverBlanks"
+            android:label="Fill Blanks" />
+        <activity
+            android:name=".MainDirectory.Pages.ProfileSettingsActivity"
+            android:label="Profile Settings"
+            android:parentActivityName=".MainDirectory.Pages.RelatedToPerson.PersonProfile"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainDirectory.MainActivityV2" />
+        </activity>
+
+        <service
+            android:name=".TestCases.MyFireBaseInstanceIDService"
+            android:exported="false"
+            tools:ignore="ExportedService,InnerclassSeparator">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
-        <activity
-            android:name=".TestCases.RecyclerViewTest"
-            android:label="@string/title_activity_recycler_view_test"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".MainDirectory.AddressSelectorActivity"
-            android:label="@string/title_activity_address_selector" />
+        <service
+            android:name=".TestCases.MyFireBaseMessagingService"
+            android:exported="false"
+            tools:ignore="ExportedService,InnerclassSeparator">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

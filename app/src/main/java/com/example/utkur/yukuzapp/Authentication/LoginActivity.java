@@ -39,6 +39,7 @@ import java.util.List;
 
 import com.example.utkur.yukuzapp.External.DoAction;
 import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.Statics;
 import com.example.utkur.yukuzapp.R;
@@ -257,13 +258,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     if (result == null) {
                                         Log.d(TAG, "error: " + e);
                                     } else {
-                                        @SuppressLint("WrongConstant") SharedPreferences preferences = getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code);
-                                        preferences.edit().putString(Personal.ID_TOKEN, result.get("token").getAsString()).apply();
-                                        Toast.makeText(LoginActivity.this, "Successfully logged in as " + result.get("token").getAsString()
-                                                , Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                        startActivity(intent);
-                                        finish();
+                                        try {
+                                            @SuppressLint("WrongConstant") SharedPreferences preferences = getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code);
+                                            preferences.edit().putString(Personal.ID_TOKEN, result.get("token").getAsString()).apply();
+                                            Toast.makeText(LoginActivity.this, "Successfully logged in as " + result.get("token").getAsString()
+                                                    , Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getBaseContext(), MainActivityV2.class);
+                                            startActivity(intent);
+                                            finish();
+                                        } catch (Exception ex) {
+                                            Toast.makeText(getBaseContext(), "Error Password or Username/Email", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                     showProgress(false);
                                 }

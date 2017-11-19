@@ -1,14 +1,18 @@
 package com.example.utkur.yukuzapp.MainDirectory.Pages.RelatedToPerson;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.example.utkur.yukuzapp.MainDirectory.Pages.ProfileSettingsActivity;
 import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.Statics;
 import com.example.utkur.yukuzapp.R;
@@ -44,6 +48,7 @@ public class PersonProfile extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ButterKnife.bind(this);
         tabHost.setup();
         TabHost.TabSpec spec = tabHost.newTabSpec("Posts");
@@ -56,10 +61,6 @@ public class PersonProfile extends AppCompatActivity {
         spec.setIndicator("About");
         tabHost.addTab(spec);
 
-        spec = tabHost.newTabSpec("Settings");
-        spec.setContent(R.id.frame_settins);
-        spec.setIndicator("Settings");
-        tabHost.addTab(spec);
         Log.d(TAG, "onCreate: " + getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code).getString(Personal.ID_TOKEN, "null"));
         Ion.with(getBaseContext())
                 .load(Statics.URL.REST.get_creds)
@@ -75,16 +76,47 @@ public class PersonProfile extends AppCompatActivity {
                                 Picasso.with(getBaseContext())
                                         .load(Statics.URL.load_image_url + result.get("image").getAsString())
                                         .into(imageView);
-                                textView.setText(result.get("first_name").getAsString() + " " + result.get("last_name").getAsString());
+                                fn = result.get("first_name").getAsString();
+                                ln = result.get("last_name").getAsString();
+                                textView.setText(fn + " " + ln);
                                 getSupportActionBar().setTitle(result.get("first_name").getAsString() + " " + result.get("last_name").getAsString());
                                 ssn.setText("SSN: " + result.get("ssn").getAsString());
                                 phone_number.setText("Phone Number: +" + result.get("phone").getAsString());
-                            }catch (Exception ex){
-                                Log.d(TAG, "onCompleted: "+ex.getMessage());
+                            } catch (Exception ex) {
+                                Log.d(TAG, "onCompleted: " + ex.getMessage());
                             }
                         }
                     }
                 });
+    }
+
+    String fn;
+    String ln;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.profilemenu_settings:
+                Log.d(TAG, "onOptionsItemSelected: ");
+                Intent i = new Intent(this, ProfileSettingsActivity.class);
+                i.putExtra("fn", fn);
+                i.putExtra("ln", ln);
+                startActivity(i);
+
+                break;
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_menu, menu);
+        return true;
     }
 
     private String TAG = "ProfilePerson";

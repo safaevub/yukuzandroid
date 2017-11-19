@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.example.utkur.yukuzapp.Manifest;
 import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.Statics;
@@ -75,7 +76,7 @@ public class RegisterActivity_2 extends Fragment {
                             .setHeader("Authorization", "Token " + token)
                             .setMultipartParameter("user", "1")
                             .setMultipartParameter("ssn", ssn.getText().toString() + "")
-                            .setMultipartParameter("phone_number", ssn.getText().toString())
+                            .setMultipartParameter("phone_number", number.getText().toString())
                             .setMultipartFile("image", new File(path))
                             .asString()
                             .setCallback(new FutureCallback<String>() {
@@ -84,7 +85,7 @@ public class RegisterActivity_2 extends Fragment {
                                     if (result != null) {
                                         Log.d(TAG, "uploaded " + result);
                                         Toast.makeText(getContext(), "loaded", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                                        Intent intent = new Intent(getActivity(), MainActivityV2.class);
                                         progress.setVisibility(View.GONE);
                                         startActivity(intent);
                                         getActivity().finish();
@@ -130,6 +131,7 @@ public class RegisterActivity_2 extends Fragment {
             Uri selectedImage = data.getData();
             Log.d(TAG, "onActivityResult: " + selectedImage);
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
+            assert selectedImage != null;
             Cursor cursor = getActivity().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
             assert cursor != null;
             cursor.moveToFirst();

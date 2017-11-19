@@ -31,7 +31,7 @@
 
     <string name="default_req_title">Truck needed</string>
     <string name="def_time">13:48 Oct 8 2017</string>
-    <string name="def_description">lorem ipsum daler google help wassasas great job master master he he</string>
+    <string name="def_description">lorem ipsum daler google help wassasas great job master he</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email or Username</string>
     <string name="prompt_password">Password (optional)</string>
@@ -49,10 +49,30 @@
     <string name="post_title">One tefal</string>
     <string name="log_out">Log out</string>
     <string name="title_activity_recycler_view_test">RecyclerViewTest</string>
-
+    <string name="firebase_token">f7a9e98e5bb46b51a649c493f54b4027c52f8f68</string>
     <!--facebook config-->
     <string name="facebook_app_id">308787122932281</string>
     <string name="fb_login_protocol_scheme">fb308787122932281</string>
     <string name="title_activity_address_selector">Map</string>
+    <string name="upload">upload</string>
+    <string name="create">create</string>
+    <string name="back">back</string>
+    <string name="_40a246ab">40A246AB</string>
+    <string name="min_kg">min kg</string>
+    <string name="max_kg">max kg</string>
+    <string name="no_car">NO CAR</string>
+    <string name="about_driver">About Driver</string>
+    <string name="title">Title</string>
+    <string name="delete">delete</string>
 
+    <string-array name="currencies">
+        <item>dollar</item>
+        <item>sum</item>
+        <item>won</item>
+    </string-array>
+    <string-array name="car_types">
+        <item>light car</item>
+        <item>truck</item>
+        <item>bicycle</item>
+    </string-array>
 </resources>

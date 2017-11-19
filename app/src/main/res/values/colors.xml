@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#5177d9</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
-
+    <color name="header_back">#eeeef1</color>
+    <color name="color_line">#bbbbbf</color>
     <color name="textColor">#4a4a4a</color>
     <color name="loginHeaderFont">#4a4a4a</color>
     <color name="loginEditorBg">#f3f3f3</color>
@@ -15,4 +16,8 @@
     <color name="login_with_existing">#bababa</color>
     <color name="not_member_text">#d1d1d1</color>
     <color name="register_text">#ff003a</color>
+    <color name="dark_green">#7bbf40</color>
+    <color name="light_green">#a9fd60</color>
+    <color name="dark_red">#f1424e</color>
+    <color name="light_red">#fc949b</color>
 </resources>

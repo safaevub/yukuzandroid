@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "966531790894-qg7i0t7elb1tl25vc1hq4qk6os64e574.apps.googleusercontent.com",
+          "client_id": "966531790894-tdgnocsdbt7j34b1f46476s9irlkmp7q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB5HihKmuqSjoq0stG_JIEEIl3GS0bZz-s"
+          "current_key": "AIzaSyA0j7zFcmUOx2BrIEb55Wj5evRsG0Cvjdw"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "966531790894-qg7i0t7elb1tl25vc1hq4qk6os64e574.apps.googleusercontent.com",
+              "client_id": "966531790894-tdgnocsdbt7j34b1f46476s9irlkmp7q.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

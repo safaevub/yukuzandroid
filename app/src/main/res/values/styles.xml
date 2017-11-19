@@ -7,7 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="AppTheme.ActionBarStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <style name="AppTheme.ActionBarStyle" parent="Theme.AppCompat.Light">
+        <!--<item name="android:homeAsUpIndicator">@drawable/ic_home_black_24dp</item>-->
         <item name="android:titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
     </style>
 

@@ -1,14 +1,19 @@
 package com.example.utkur.yukuzapp.External;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.ParseException;
 import android.nfc.FormatException;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -18,12 +23,32 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Mukhammadjon Tokhirov on 06.12.2016.
  */
 public class DoAction {
     private static String TAG = "DO ACTION";
+
+    public static String convertDateTimeToFormat(String from_format, String to_format, String time) {
+        String pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
+        org.joda.time.format.DateTimeFormatter dtf = DateTimeFormat.forPattern(pattern);
+        DateTime dateTime = dtf.parseDateTime(time);
+        System.out.println(dateTime);
+        return "day " + dateTime.dayOfMonth().getAsString() + " " + dateTime.monthOfYear().getAsString() + "-" + dateTime.yearOfEra().getAsString() + " " + dateTime.hourOfDay().getAsString() + "-" + dateTime.minuteOfHour().getAsString();
+    }
+
+    public static DateTime convertToDateTime(String time) {
+        String pattern = "yyyy-MM-dd";
+        org.joda.time.format.DateTimeFormatter dtf = DateTimeFormat.forPattern(pattern);
+        DateTime dateTime = dtf.parseDateTime(time);
+        System.out.println(dateTime);
+        return dateTime;
+    }
 
     public static String convertIntToDate(Integer intDate, String format) throws FormatException {
         return new SimpleDateFormat(format).format(intDate * 1000L);
