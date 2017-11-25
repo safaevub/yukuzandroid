@@ -13,6 +13,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.example.utkur.yukuzapp.MainDirectory.Pages.ProfileSettingsActivity;
+import com.example.utkur.yukuzapp.MainDirectory.Pages.RelatedToDriver.FillDriverBlanks;
 import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.Statics;
 import com.example.utkur.yukuzapp.R;
@@ -56,12 +57,14 @@ public class PersonProfile extends AppCompatActivity {
         spec.setIndicator("Posts");
         tabHost.addTab(spec);
 
+        get_user_credentials();
+
         spec = tabHost.newTabSpec("About");
         spec.setContent(R.id.frame_about);
         spec.setIndicator("About");
         tabHost.addTab(spec);
-
-        Log.d(TAG, "onCreate: " + getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code).getString(Personal.ID_TOKEN, "null"));
+    }
+    private void get_user_credentials(){
         Ion.with(getBaseContext())
                 .load(Statics.URL.REST.get_creds)
                 .setHeader("Authorization", "Token " + getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code).getString(Personal.ID_TOKEN, "null"))
@@ -89,7 +92,6 @@ public class PersonProfile extends AppCompatActivity {
                     }
                 });
     }
-
     String fn;
     String ln;
 
@@ -104,6 +106,12 @@ public class PersonProfile extends AppCompatActivity {
                 startActivity(i);
 
                 break;
+            case R.id.profilemenu_diriver_cabin:
+                i = new Intent(this, FillDriverBlanks.class);
+                i.putExtra("purpose", 1);
+                i.putExtra("username", textView.getText().toString());
+                startActivity(i);
+                break;
             case android.R.id.home:
                 finish();
                 return true;
@@ -114,8 +122,21 @@ public class PersonProfile extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        SharedPreferences pr = getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code);
         getMenuInflater().inflate(R.menu.profile_menu, menu);
+
+        boolean b = pr.getBoolean(Personal.DRIVER_ACTIVE, false);
+        if (b)
+            menu.getItem(0).setVisible(true);
+        else
+            menu.getItem(0).setVisible(false);
         return true;
     }
 

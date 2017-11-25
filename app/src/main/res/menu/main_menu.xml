@@ -5,11 +5,6 @@
         android:id="@+id/mainmenu_log_out"
         android:title="@string/log_out" />
     <item
-        android:id="@+id/mainmenu_profile"
-        android:icon="@drawable/ic_person_black_24dp"
-        android:title="@string/title_profile"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/mainmenu_update_list"
         android:icon="@drawable/ic_autorenew_black_24dp"
         android:title="update"

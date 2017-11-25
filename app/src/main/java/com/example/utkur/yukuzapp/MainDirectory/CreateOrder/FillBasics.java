@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import com.example.utkur.yukuzapp.Adapters.CustomAdapter;
 import com.example.utkur.yukuzapp.MainDirectory.AddressSelectorActivity;
-import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+
 import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.example.utkur.yukuzapp.Module.CurrencyType;
 import com.example.utkur.yukuzapp.Module.Personal;
@@ -42,7 +42,7 @@ import java.util.Calendar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.utkur.yukuzapp.MainDirectory.CreateOrder.Deliveries.postOrders;
+import static com.example.utkur.yukuzapp.MainDirectory.CreateOrder.UnpickedOrdersFragment.postOrders;
 
 /**
  * Created by Muhammadjon on 10/30/2017.

@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.utkur.yukuzapp.External.DoAction;
-import com.example.utkur.yukuzapp.MainDirectory.CreateOrder.Deliveries;
+import com.example.utkur.yukuzapp.MainDirectory.CreateOrder.UnpickedOrdersFragment;
 import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.PostOrder;
 import com.example.utkur.yukuzapp.Module.Statics;
@@ -36,7 +36,6 @@ import com.koushikdutta.ion.Ion;
 import org.joda.time.DateTime;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,7 +75,7 @@ public class ViewEditOrderActivity extends AppCompatActivity implements OnMapRea
         id = getIntent().getExtras().getInt("id");
         position = getIntent().getExtras().getInt("pos");
         Log.d(TAG, "onCreate: " + position);
-        order = Deliveries.postOrders.get(position);
+        order = UnpickedOrdersFragment.postOrders.get(position);
         if (order != null) {
             getSupportActionBar().setTitle(order.getTitle());
             float la = Float.parseFloat(order.getSource_address().split("/")[0]);
@@ -182,7 +181,7 @@ public class ViewEditOrderActivity extends AppCompatActivity implements OnMapRea
                     public void onCompleted(Exception e, String result) {
                         if (result != null && result.equals("updated")) {
                             Toast.makeText(ViewEditOrderActivity.this, "your order has been updated", Toast.LENGTH_SHORT).show();
-                            Deliveries.postOrders.get(position).setIs_cancelled(is_cancelled_switch_btn.isChecked());
+                            UnpickedOrdersFragment.postOrders.get(position).setIs_cancelled(is_cancelled_switch_btn.isChecked());
                             finish();
                         }
                     }

@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.utkur.yukuzapp.External.DoAction;
-import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+
 import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.example.utkur.yukuzapp.Module.Personal;
 import com.example.utkur.yukuzapp.Module.Statics;

@@ -2,8 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/profilemenu_diriver_cabin"
+        android:icon="@drawable/ic_directions_car_black_24dp"
+        android:title="driver cabin"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/profilemenu_settings"
         android:icon="@drawable/ic_settings_black_24dp"
         android:title="settings"
         app:showAsAction="ifRoom" />
+
 </menu>

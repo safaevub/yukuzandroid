@@ -2,7 +2,7 @@ package com.example.utkur.yukuzapp.Module;
 
 import android.util.Log;
 
-import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+
 import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

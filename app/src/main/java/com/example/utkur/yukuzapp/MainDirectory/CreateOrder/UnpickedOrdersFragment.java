@@ -37,15 +37,15 @@ import butterknife.ButterKnife;
  * Created by Muhammadjon on 10/29/2017.
  */
 
-public class Deliveries extends Fragment {
+public class UnpickedOrdersFragment extends Fragment {
 
     @BindView(R.id.unpicked_orders_list)
     RecyclerView unpicked_order_list_recyclerView;
-    public UnpickedRequestsAdapter unpickedRequestsAdapter;
     @BindView(R.id.progress_circle)
     ProgressBar progressBar;
     @BindView(R.id.add_order)
     FloatingActionButton add_order;
+    public UnpickedRequestsAdapter unpickedRequestsAdapter;
     public static List<PostOrder> postOrders = new ArrayList<>();
 
     @Override
@@ -74,7 +74,7 @@ public class Deliveries extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
-        unpickedRequestsAdapter = new UnpickedRequestsAdapter(getContext(), postOrders);
+        unpickedRequestsAdapter = new UnpickedRequestsAdapter(getContext(), postOrders, 1);
         unpicked_order_list_recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         unpicked_order_list_recyclerView.setAdapter(unpickedRequestsAdapter);
         if (postOrders.size() == 0) {

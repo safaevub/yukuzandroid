@@ -3,11 +3,7 @@ package com.example.utkur.yukuzapp.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.ColorSpace;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.view.SupportMenuInflater;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.utkur.yukuzapp.External.DoAction;
 import com.example.utkur.yukuzapp.MainDirectory.ViewEditOrderActivity;
+import com.example.utkur.yukuzapp.Module.PickedPostOrder;
 import com.example.utkur.yukuzapp.Module.PostOrder;
 import com.example.utkur.yukuzapp.R;
 
@@ -33,48 +30,70 @@ import static android.content.ContentValues.TAG;
  */
 
 public class UnpickedRequestsAdapter extends RecyclerView.Adapter<UnpickedRequestsAdapter.ItemHolder> {
-    private List<PostOrder> orders;
+    private List<PostOrder> objects;
+    private List<PickedPostOrder> picked_objects;
     private Context context;
+    private int purpose;
 
-    public UnpickedRequestsAdapter(Context context, List<PostOrder> items) {
-        this.orders = items;
+    public UnpickedRequestsAdapter(List<PickedPostOrder> items, Context context, int purpose) {
+        this.purpose = purpose;
+        this.picked_objects = items;
+        this.context = context;
+    }
+
+    public UnpickedRequestsAdapter(Context context, List<PostOrder> items, int purpose) {
+        this.purpose = purpose;
+        this.objects = items;
         this.context = context;
     }
 
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new ItemHolder(inflater.inflate(R.layout.request_list_item, parent, false));
+        switch (purpose) {
+            case 1:
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                return new ItemHolder(inflater.inflate(R.layout.unpicked_order_list_item, parent, false));
+            default:
+                return null;
+        }
     }
 
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(ItemHolder holder, @SuppressLint("RecyclerView") int position) {
-        PostOrder order = orders.get(position);
-        holder.order_title.setText(order.getTitle());
-        holder.order_descr.setText(order.getDescription());
-//        DoAction.convertDateTimeToFormat("", "", order.getTime())
-        holder.order_time.setText(DoAction.convertDateTimeToFormat("", "", order.getTime()));
-        holder.id = order.getId();
-        holder.pos = position;
-        Log.d(TAG, "onBindViewHolder: " + order.isIs_cancelled());
-        if (order.isIs_cancelled()) {
-            holder.is_alive.setText("alive");
-            holder.is_alive.setTextColor(ContextCompat.getColor(context, R.color.dark_green));
-        } else {
-            holder.is_alive.setText("cancelled");
-            holder.is_alive.setTextColor(ContextCompat.getColor(context, R.color.dark_red));
+        switch (purpose) {
+            case 1:
+                PostOrder order = (PostOrder) objects.get(position);
+                holder.order_title.setText(order.getTitle());
+                holder.order_descr.setText(order.getDescription());
+                holder.order_time.setText(DoAction.convertDateTimeToFormat("", "", order.getTime()));
+                holder.id = order.getId();
+                holder.pos = position;
+                Log.d(TAG, "onBindViewHolder: " + order.isIs_cancelled());
+                if (order.isIs_cancelled()) {
+                    holder.is_alive.setText("alive");
+                    holder.is_alive.setTextColor(ContextCompat.getColor(context, R.color.dark_green));
+                } else {
+                    holder.is_alive.setText("cancelled");
+                    holder.is_alive.setTextColor(ContextCompat.getColor(context, R.color.dark_red));
+                }
+            default:
+                break;
         }
     }
 
     @Override
     public int getItemCount() {
-        return getOrders().size();
+        switch (purpose) {
+            case 1:
+                return objects.size();
+            case 2:
+                return picked_objects.size();
+            default:
+                return 0;
+        }
     }
 
-    private List<PostOrder> getOrders() {
-        return orders;
-    }
 
     class ItemHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.order_title)

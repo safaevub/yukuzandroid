@@ -25,7 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+
 import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.example.utkur.yukuzapp.Manifest;
 import com.example.utkur.yukuzapp.Module.Personal;

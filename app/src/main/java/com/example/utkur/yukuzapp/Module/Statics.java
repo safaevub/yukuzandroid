@@ -15,6 +15,7 @@ public class Statics {
     public static class URL {
         public static String getToeknURL = serverURL + "api-gettoken/";
         public static String load_image_url = serverURL + "images/";
+        public static String base_url = "http://192.168.1.133:8000";
 
         public static class REST {
             public static String register = serverURL + "auth/register/";
@@ -26,7 +27,13 @@ public class Statics {
             public static String create_orders = serverURL + "rest/posts/";
             public static String update_order = serverURL + "rest/post_update/";
             public static String add_car = serverURL + "rest/car_view/";
+            public static String delete_car = serverURL + "rest/car_view/";
             public static String cars_list = serverURL + "rest/car_view/";
+            public static String driver_get = serverURL + "auth/driver_create/";
+            public static String driver_create = serverURL + "auth/driver_create/";
+            public static String driver_active_toggle = serverURL + "auth/driver_create/";
+            public static String initialize = serverURL + "rest/initialize/";
+            public static String create_device = serverURL + "firebase/devices/";
         }
     }
 }

@@ -15,7 +15,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.widget.Toast;
 
-import com.example.utkur.yukuzapp.MainDirectory.MainActivity;
+
 import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
 import com.example.utkur.yukuzapp.R;
 

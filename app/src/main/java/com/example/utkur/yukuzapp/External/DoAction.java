@@ -6,11 +6,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.ParseException;
 import android.nfc.FormatException;
 import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -19,14 +23,9 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Mukhammadjon Tokhirov on 06.12.2016.
@@ -83,7 +82,7 @@ public class DoAction {
 
     public static boolean loadImage(String url, Bitmap b) {
 
-        AsyncTask<String, Void, Bitmap> as = new AsyncTask<String, Void, Bitmap>() {
+        @SuppressLint("StaticFieldLeak") AsyncTask<String, Void, Bitmap> as = new AsyncTask<String, Void, Bitmap>() {
             @Override
             protected void onPostExecute(Bitmap bitmap) {
                 super.onPostExecute(bitmap);
@@ -110,6 +109,27 @@ public class DoAction {
         };
         as.execute(url);
         return true;
+    }
+
+    @SuppressLint({"SetTextI18n", "ResourceType"})
+    public static LinearLayout deletePopupLayout(Context context) {
+        LinearLayout linearLayout = new LinearLayout(context);
+
+        TextView text = new TextView(context);
+        text.setText("Do you want to delete?");
+
+        text.setPadding(8, 8, 8, 8);
+        text.setGravity(Gravity.CENTER);
+        Button menu1 = new Button(context);
+        
+        menu1.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        menu1.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        menu1.setId(101);
+        menu1.setText("Delete");
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.addView(text);
+        linearLayout.addView(menu1);
+        return linearLayout;
     }
 
     public static boolean isNetworkAvailable(Context context) {

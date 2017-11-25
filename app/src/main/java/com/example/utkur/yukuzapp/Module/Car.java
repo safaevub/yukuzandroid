@@ -13,8 +13,14 @@ public class Car {
     private int max_kg;
     private VehicleType car_type;
     private String number;
+
     private Car() {
 
+    }
+
+    @Override
+    public String toString() {
+        return getTitle() + " " + getNumber() + " " + getCar_type().getTitle();
     }
 
     public Car(String title, String number) {
@@ -30,7 +36,7 @@ public class Car {
         object.addProperty("min_kg", car.getMin_kg());
         object.addProperty("car_type", car.getCar_type().getId());
 
-        return null;
+        return object;
     }
 
     public static Car getInstance() {

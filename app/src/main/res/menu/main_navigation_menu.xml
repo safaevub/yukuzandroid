@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/nav_posts_group"
+        android:checkableBehavior="single"
+        android:menuCategory="container">
+        <item android:title="@string/post">
+            <menu>
+                <item
+                    android:id="@+id/nav_posts_un_picked"
+                    android:title="@string/unpicked" />
+                <item
+                    android:id="@+id/nav_posts_picked"
+                    android:title="@string/picked" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/driver_menu_field"
+            android:title="@string/driver">
+            <menu>
+                <item
+                    android:id="@+id/driver_menu_field_profile"
+                    android:title="@string/driver_profile" />
+                <item
+                    android:id="@+id/driver_menu_field_un_reqs"
+                    android:title="@string/unpicked_requests" />
+                <item
+                    android:id="@+id/driver_menu_field_reqs"
+                    android:title="@string/picked_requests" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/driver_menu_settings"
+            android:title="@string/settings" />
+    </group>
+
+
+</menu>
