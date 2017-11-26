@@ -50,7 +50,7 @@ public class UnpickedRequestsAdapter extends RecyclerView.Adapter<UnpickedReques
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (purpose) {
-            case 1:
+            case 1 | 3:
                 LayoutInflater inflater = LayoutInflater.from(parent.getContext());
                 return new ItemHolder(inflater.inflate(R.layout.unpicked_order_list_item, parent, false));
             default:
@@ -58,11 +58,11 @@ public class UnpickedRequestsAdapter extends RecyclerView.Adapter<UnpickedReques
         }
     }
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     @Override
     public void onBindViewHolder(ItemHolder holder, @SuppressLint("RecyclerView") int position) {
         switch (purpose) {
-            case 1:
+            case 1 | 3:
                 PostOrder order = (PostOrder) objects.get(position);
                 holder.order_title.setText(order.getTitle());
                 holder.order_descr.setText(order.getDescription());
@@ -70,6 +70,7 @@ public class UnpickedRequestsAdapter extends RecyclerView.Adapter<UnpickedReques
                 holder.id = order.getId();
                 holder.pos = position;
                 Log.d(TAG, "onBindViewHolder: " + order.isIs_cancelled());
+                if (purpose == 3) holder.is_alive.setVisibility(View.GONE);
                 if (order.isIs_cancelled()) {
                     holder.is_alive.setText("alive");
                     holder.is_alive.setTextColor(ContextCompat.getColor(context, R.color.dark_green));

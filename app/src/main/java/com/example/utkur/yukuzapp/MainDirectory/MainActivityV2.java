@@ -247,34 +247,8 @@ public class MainActivityV2 extends AppCompatActivity {
             case R.id.mainmenu_update_list:
                 UnpickedOrdersFragment.postOrders.clear();
                 fragment_unpicked_orders.getView().findViewById(R.id.progress_circle).setVisibility(View.VISIBLE);
-                Ion.with(fragment_unpicked_orders.getContext())
-                        .load(Statics.URL.REST.get_unpicked_orders)
-                        .setHeader("Authorization", "Token " + Personal.getToken(getBaseContext()))
-                        .asJsonArray()
-                        .setCallback(new FutureCallback<JsonArray>() {
-                            @Override
-                            public void onCompleted(Exception e, JsonArray result) {
-                                try {
-                                    if (result != null) {
-                                        Log.d("result", "onCompleted: " + result);
-                                        for (int i = 0; i < result.size(); i++) {
-                                            PostOrder order = PostOrder.getOrderByJsonObject(result.get(i).getAsJsonObject());
-                                            UnpickedOrdersFragment.postOrders.add(order);
-                                            fragment_unpicked_orders.unpickedRequestsAdapter.notifyDataSetChanged();
-                                        }
-                                        if (UnpickedOrdersFragment.postOrders.isEmpty())
-                                            fragment_unpicked_orders.no_post_text_alert.setVisibility(View.VISIBLE);
-                                        else
-                                            fragment_unpicked_orders.no_post_text_alert.setVisibility(View.GONE);
-                                        fragment_unpicked_orders.getView().findViewById(R.id.progress_circle).setVisibility(View.GONE);
-                                        Toast.makeText(getBaseContext(), "Updated", Toast.LENGTH_SHORT).show();
-                                    } else
-                                        Toast.makeText(fragment_unpicked_orders.getContext(), "Something went wrong or check your internet connection", Toast.LENGTH_SHORT).show();
-                                } catch (Exception ex) {
-                                    Toast.makeText(fragment_unpicked_orders.getContext(), e.getMessage() + "-" + ex.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                fragment_unpicked_orders.refreshList(getBaseContext());
+                Toast.makeText(this, "Refreshed", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

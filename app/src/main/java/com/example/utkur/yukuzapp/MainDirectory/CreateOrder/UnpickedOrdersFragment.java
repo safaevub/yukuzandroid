@@ -1,6 +1,7 @@
 package com.example.utkur.yukuzapp.MainDirectory.CreateOrder;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -79,35 +80,38 @@ public class UnpickedOrdersFragment extends Fragment {
         unpicked_order_list_recyclerView.setAdapter(unpickedRequestsAdapter);
         if (postOrders.size() == 0) {
             progressBar.setVisibility(View.VISIBLE);
-            @SuppressLint("WrongConstant") SharedPreferences preferences = getActivity().getSharedPreferences(Personal.SHARED_PREF_CODE, Statics.pref_code);
-            Ion.with(getContext())
-                    .load(Statics.URL.REST.get_unpicked_orders)
-                    .setHeader("Authorization", "Token " + preferences.getString(Personal.ID_TOKEN, "null"))
-                    .asJsonArray()
-                    .setCallback(new FutureCallback<JsonArray>() {
-                        @Override
-                        public void onCompleted(Exception e, JsonArray result) {
-                            try {
-                                if (result != null) {
-                                    Log.d("result", "onCompleted: " + result);
-                                    for (int i = 0; i < result.size(); i++) {
-                                        PostOrder order = PostOrder.getOrderByJsonObject(result.get(i).getAsJsonObject());
-                                        postOrders.add(order);
-                                        unpickedRequestsAdapter.notifyDataSetChanged();
-                                    }
-                                    if (postOrders.isEmpty())
-                                        no_post_text_alert.setVisibility(View.VISIBLE);
-                                    else no_post_text_alert.setVisibility(View.GONE);
-                                    progressBar.setVisibility(View.GONE);
-                                } else
-                                    Toast.makeText(getContext(), "Something went wrong or check your internet connection", Toast.LENGTH_SHORT).show();
-                            } catch (Exception ex) {
-                                Toast.makeText(getContext(), e.getMessage() + "-" + ex.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+            refreshList(getContext());
         } else {
             unpickedRequestsAdapter.notifyDataSetChanged();
         }
+    }
+
+    public void refreshList(Context c) {
+        Ion.with(getContext())
+                .load(Statics.URL.REST.get_unpicked_orders)
+                .setHeader("Authorization", "Token " + Personal.getToken(c))
+                .asJsonArray()
+                .setCallback(new FutureCallback<JsonArray>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonArray result) {
+                        try {
+                            if (result != null) {
+                                Log.d("result", "onCompleted: " + result);
+                                for (int i = 0; i < result.size(); i++) {
+                                    PostOrder order = PostOrder.getOrderByJsonObject(result.get(i).getAsJsonObject(), 1);
+                                    postOrders.add(order);
+                                    unpickedRequestsAdapter.notifyDataSetChanged();
+                                }
+                                if (postOrders.isEmpty())
+                                    no_post_text_alert.setVisibility(View.VISIBLE);
+                                else no_post_text_alert.setVisibility(View.GONE);
+                                progressBar.setVisibility(View.GONE);
+                            } else
+                                Toast.makeText(getContext(), "Something went wrong or check your internet connection", Toast.LENGTH_SHORT).show();
+                        } catch (Exception ex) {
+                            Toast.makeText(getContext(), e.getMessage() + "-" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }

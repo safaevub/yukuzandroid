@@ -3,8 +3,6 @@ package com.example.utkur.yukuzapp.Module;
 import android.util.Log;
 
 
-import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import static com.google.android.gms.plus.PlusOneDummyView.TAG;
@@ -172,24 +170,48 @@ public class PostOrder {
         this.currency_type = currency_type;
     }
 
-    public static PostOrder getOrderByJsonObject(JsonObject obj) {
-        PostOrder order = new PostOrder(
-                obj.get("id").getAsInt(),
-                obj.get("post_title").getAsString(),
-                obj.get("description").getAsString(),
+    public static PostOrder getOrderByJsonObject(JsonObject obj, int purpose) {
+        switch (purpose) {
+            case 1:
+                PostOrder order = new PostOrder(
+                        obj.get("id").getAsInt(),
+                        obj.get("post_title").getAsString(),
+                        obj.get("description").getAsString(),
 //                                        obj.get("order_by").getAsInt(),
-                obj.get("order_time").getAsString(),
-                obj.get("source_address").getAsString(),
-                obj.get("destination_address").getAsString(),
-                obj.get("weigth").getAsFloat(),
-                obj.get("deadline").getAsString(),
-                obj.get("currency_type").getAsInt(),
-                obj.get("estimated_price").getAsFloat());
-        order.setIs_cancelled(obj.get("is_cancelled").getAsBoolean());
-        Log.d(TAG, "getOrderByJsonObject: " + obj.toString());
-        order.setCurrency_type(obj.get("currency").getAsString());
-        order.setVehicle_type(obj.get("type_of_vehicle").getAsInt());
-        return order;
+                        obj.get("order_time").getAsString(),
+                        obj.get("source_address").getAsString(),
+                        obj.get("destination_address").getAsString(),
+                        obj.get("weigth").getAsFloat(),
+                        obj.get("deadline").getAsString(),
+                        obj.get("currency_type").getAsInt(),
+                        obj.get("estimated_price").getAsFloat());
+                order.setIs_cancelled(obj.get("is_cancelled").getAsBoolean());
+                Log.d(TAG, "getOrderByJsonObject: " + obj.toString());
+                order.setCurrency_type(obj.get("currency").getAsString());
+                order.setVehicle_type(obj.get("type_of_vehicle").getAsInt());
+                return order;
+            case 2:
+                order = new PostOrder(
+                        obj.get("id").getAsInt(),
+                        obj.get("post_title").getAsString(),
+                        obj.get("description").getAsString(),
+//                                        obj.get("order_by").getAsInt(),
+                        obj.get("order_time").getAsString(),
+                        obj.get("source_address").getAsString(),
+                        obj.get("destination_address").getAsString(),
+                        obj.get("weigth").getAsFloat(),
+                        obj.get("deadline").getAsString(),
+                        obj.get("currency_type").getAsInt(),
+                        obj.get("estimated_price").getAsFloat());
+                order.setIs_cancelled(obj.get("is_cancelled").getAsBoolean());
+                Log.d(TAG, "getOrderByJsonObject: " + obj.toString());
+                order.setCurrency_type(obj.get("currency").getAsString());
+                order.setVehicle_type(obj.get("type_of_vehicle").getAsInt());
+                order.setPosted_by(obj.get("prder_by").getAsInt());
+                return order;
+            default:
+                return null;
+        }
     }
 
     public boolean isIs_cancelled() {

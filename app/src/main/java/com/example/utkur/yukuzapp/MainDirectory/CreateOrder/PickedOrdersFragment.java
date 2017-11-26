@@ -12,7 +12,6 @@ import android.widget.ProgressBar;
 
 import com.example.utkur.yukuzapp.Adapters.PickedRequestsAdapter;
 import com.example.utkur.yukuzapp.Adapters.UnpickedRequestsAdapter;
-import com.example.utkur.yukuzapp.Module.PickedOrders;
 import com.example.utkur.yukuzapp.Module.PickedPostOrder;
 import com.example.utkur.yukuzapp.Module.PostOrder;
 import com.example.utkur.yukuzapp.R;
@@ -35,7 +34,7 @@ public class PickedOrdersFragment extends Fragment {
     ProgressBar progressBar;
     @BindView(R.id.add_order)
     FloatingActionButton add_order;
-    public static List<PickedOrders> pickedOrders = new ArrayList<>();
+    public static List<PickedPostOrder> pickedOrders = new ArrayList<>();
 
     @Nullable
     @Override
