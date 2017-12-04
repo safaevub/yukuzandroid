@@ -11,14 +11,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.widget.Toast;
 
 
 import com.example.utkur.yukuzapp.MainDirectory.MainActivityV2;
+import com.example.utkur.yukuzapp.MainDirectory.Pages.DriversListPickedOrderActivity;
+import com.example.utkur.yukuzapp.MainDirectory.Pages.ViewSingleOrderFromPersonActivity;
+import com.example.utkur.yukuzapp.Module.Driver;
+import com.example.utkur.yukuzapp.Module.PostOrder;
+import com.example.utkur.yukuzapp.Module.Statics;
 import com.example.utkur.yukuzapp.R;
+import com.example.utkur.yukuzapp.TestCases.MyFireBaseMessagingService;
+import com.google.gson.JsonObject;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class NotificationHandler {
@@ -52,28 +65,62 @@ public class NotificationHandler {
      *
      * @param context aplication context
      */
-    public void createSimpleNotification(Context context, String message) {
+    public void createSimpleNotification(Context context, String purpose, JSONObject json, String title) throws Exception {
         // Creates an explicit intent for an Activity
-        Intent resultIntent = new Intent(context, MainActivityV2.class);
+        if (purpose.equals(MyFireBaseMessagingService.Notification_type.NEW_POST)) {
+            Intent resultIntent = new Intent(context, ViewSingleOrderFromPersonActivity.class);
+            resultIntent.putExtra("purpose", 1);
+            resultIntent.putExtra("data", json.toString());
 
-        // Creating a artifical activity stack for the notification activity
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addParentStack(MainActivityV2.class);
-        stackBuilder.addNextIntent(resultIntent);
+            // Creating a artifical activity stack for the notification activity
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+            stackBuilder.addParentStack(MainActivityV2.class);
+            stackBuilder.addNextIntent(resultIntent);
 
-        // Pending intent to the notification manager
-        PendingIntent resultPending = stackBuilder
-                .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            // Pending intent to the notification manager
+            PendingIntent resultPending = stackBuilder
+                    .getPendingIntent(0, PendingIntent.FLAG_ONE_SHOT);
 
-        // Building the notification
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.yukuz_icon_1) // notification icon
-                .setContentTitle("A new Notification") // main title of the notification
-                .setContentText("" + message) // notification text
-                .setContentIntent(resultPending); // notification intent
+            // Building the notification
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                    .setSmallIcon(R.drawable.yukuz_icon_1) // notification icon
+                    .setContentTitle("" + title) // main title of the notification
+                    .setContentText(json.getString("first_name") + " " + json.getString("last_name") + " wants to move his staffs") // notification text
+                    .setContentIntent(resultPending); // notification intent
 
-        // mId allows you to update the notification later on.
-        mNotificationManager.notify(10, mBuilder.build());
+            // mId allows you to update the notification later on.
+            mNotificationManager.notify(10, mBuilder.build());
+        } else if (purpose.equals(MyFireBaseMessagingService.Notification_type.POST_PICKED)) {
+            Intent resultIntent = new Intent(context, DriversListPickedOrderActivity.class);
+            JSONArray arr = json.getJSONArray("drivers");
+            int[] ids = new int[arr.length()];
+
+            for (int j = 0; j < arr.length(); j++) {
+                ids[j] = ((arr.getJSONArray(j)).getInt(0));
+            }
+            resultIntent.putExtra("drivers", ids);
+            resultIntent.putExtra("id", json.getInt("order"));
+
+            // Creating a artifical activity stack for the notification activity
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+            stackBuilder.addParentStack(MainActivityV2.class);
+            stackBuilder.addNextIntent(resultIntent);
+
+            // Pending intent to the notification manager
+            PendingIntent resultPending = stackBuilder
+                    .getPendingIntent(0, PendingIntent.FLAG_ONE_SHOT);
+
+            // Building the notification
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                    .setSmallIcon(R.drawable.yukuz_icon_1) // notification icon
+                    .setContentTitle("" + title) // main title of the notification
+                    .setContentText("Someone wants to pick your order") // notification text
+                    .setContentIntent(resultPending); // notification intent
+
+            // mId allows you to update the notification later on.
+            mNotificationManager.notify(10, mBuilder.build());
+
+        }
     }
 
 

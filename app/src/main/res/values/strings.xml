@@ -31,7 +31,7 @@
 
     <string name="default_req_title">Truck needed</string>
     <string name="def_time">13:48 Oct 8 2017</string>
-    <string name="def_description">lorem ipsum daler google help wassasas great job master he</string>
+    <string name="def_description">lorem ipsum daler google help wassasas great job master he, the driver have light car and truck car</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email or Username</string>
     <string name="prompt_password">Password (optional)</string>
@@ -72,9 +72,22 @@
     <string name="unpicked_requests">Unpicked Requests</string>
     <string name="driver_profile">Driver Profile</string>
     <string name="driver">Driver</string>
-    <string name="picked">Picked</string>
-    <string name="unpicked">Unpicked</string>
-    <string name="post">Post</string>
+    <string name="picked">  Picked</string>
+    <string name="unpicked">  Unpicked</string>
+    <string name="post">Posts</string>
+    <string name="todolist">TODO</string>
+    <string name="default_user_name">Mukhammadjon Tokhirov</string>
+    <string name="default_user_email">tokhirov.mukhammadjon@gmail.com</string>
+    <string name="default_user_phone_number">+998935741369</string>
+    <string name="accept_request">ACCEPT REQUEST</string>
+    <string name="decline_request">DECLINE REQUEST</string>
+    <string name="order_title">My order title is just a title</string>
+    <string name="description">Description</string>
+    <string name="source_address">Source Address</string>
+    <string name="destination_address">Destination Address</string>
+    <string name="default_source_address">12, Alisher Navoiy, Fergana, Fergana, Uzbekistan</string>
+    <string name="pick_order">Pick order</string>
+    <string name="ignore_order">Ignore order</string>
 
     <string-array name="currencies">
         <item>dollar</item>

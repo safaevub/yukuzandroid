@@ -27,11 +27,12 @@
             android:id="@+id/profile_avatar1"
             android:layout_width="@dimen/profile_width"
             android:layout_height="@dimen/profile_height"
-            android:src="@drawable/yuk_uz"
+            app:civ_shadow_color="@color/black"
+            app:civ_shadow_radius="2"
+            android:backgroundTint="@color/white"
             app:civ_border="false"
-            app:civ_shadow="true"
-            app:civ_shadow_color="@color/white"
-            app:civ_shadow_radius="2" />
+            android:src="@drawable/yuk_uz"
+            app:civ_shadow="true"/>
 
 
         <LinearLayout

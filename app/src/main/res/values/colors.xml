@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#5177d9</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
-    <color name="header_back">#f9f9fa</color>
+    <color name="header_back">#f1f1f1</color>
     <color name="color_line">#bbbbbf</color>
     <color name="textColor">#4a4a4a</color>
     <color name="loginHeaderFont">#4a4a4a</color>

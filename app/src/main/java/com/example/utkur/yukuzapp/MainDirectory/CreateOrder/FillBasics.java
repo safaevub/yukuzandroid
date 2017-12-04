@@ -194,10 +194,16 @@ public class FillBasics extends AppCompatActivity {
                             public void onCompleted(Exception e, JsonObject result) {
                                 Log.d(TAG, "on post created: " + result);
                                 if (result != null) {
-                                    Toast.makeText(FillBasics.this, "Order created", Toast.LENGTH_SHORT).show();
-                                    progress.setVisibility(View.GONE);
-                                    postOrders.add(order);
-                                    finish();
+                                    try {
+                                        Toast.makeText(FillBasics.this, "Order created", Toast.LENGTH_SHORT).show();
+                                        progress.setVisibility(View.GONE);
+                                        order.setTime(result.get("time").getAsString());
+                                        postOrders.add(order);
+                                        finish();
+                                    } catch (Exception ex) {
+//                                        Toast.makeText(FillBasics.this, "Order could not be created", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    }
                                 }
                                 Toast.makeText(FillBasics.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                                 creator_parent.setVisibility(View.VISIBLE);
@@ -232,6 +238,7 @@ public class FillBasics extends AppCompatActivity {
             myMonth = monthOfYear;
             myDay = dayOfMonth;
             String date = myYear + "-" + myMonth + "-" + myDay;
+            myMonth = myMonth + 1;
             order.setDeadline(date);
             deadline_selector.setText("Deadline is " + date);
         }

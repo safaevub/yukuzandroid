@@ -10,7 +10,7 @@ public class Person {
     private String email;
     private String ssn;
     private String phone_number;
-
+    private String image;
     public Person(String first_name, String last_name, String ssn, String email, String phone_number) {
         setFirst_name(first_name);
         setLast_name(last_name);
@@ -64,5 +64,13 @@ public class Person {
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

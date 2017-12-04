@@ -5,7 +5,7 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.utkur.yukuzapp"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -44,6 +44,8 @@ dependencies {
     compile 'com.android.support:support-v13:26.1.0'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.1.2'
+    //circular image view
+    compile 'com.mikhaellopez:circularimageview:3.0.2'
     compile 'de.hdodenhof:circleimageview:2.2.0'
     //noinspection GradleCompatible
     compile 'com.google.firebase:firebase-core:11.4.2'

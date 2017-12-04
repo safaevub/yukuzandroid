@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/frame_person_information" />
+
+        <TextView
+            android:id="@+id/drivers_list_item_user_descr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/def_description" />
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/drivers_list_item_user_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rating="2.8" />
+
+        <Button
+            android:id="@+id/drivers_list_item_accept_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/ok_button_background"
+            android:shadowColor="@color/black"
+            android:text="@string/accept_request"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/drivers_list_item_decline_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/cancle_button_background"
+            android:shadowColor="@color/black"
+            android:text="@string/decline_request"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

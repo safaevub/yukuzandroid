@@ -26,6 +26,7 @@ public class PostOrder {
     private float price;
     private int vehicle_type;
     private String currency_type;
+    private String requester_name;
 
     public PostOrder(int id, String title, String description,
                      String time, String source_address, String destination_address,
@@ -203,11 +204,12 @@ public class PostOrder {
                         obj.get("deadline").getAsString(),
                         obj.get("currency_type").getAsInt(),
                         obj.get("estimated_price").getAsFloat());
-                order.setIs_cancelled(obj.get("is_cancelled").getAsBoolean());
+//                order.setIs_cancelled(obj.get("is_cancelled").getAsBoolean());
                 Log.d(TAG, "getOrderByJsonObject: " + obj.toString());
+                order.setRequester_name(obj.get("username").getAsString());
                 order.setCurrency_type(obj.get("currency").getAsString());
                 order.setVehicle_type(obj.get("type_of_vehicle").getAsInt());
-                order.setPosted_by(obj.get("prder_by").getAsInt());
+                order.setPosted_by(obj.get("order_by").getAsInt());
                 return order;
             default:
                 return null;
@@ -220,5 +222,13 @@ public class PostOrder {
 
     public void setIs_cancelled(boolean is_cancelled) {
         this.is_cancelled = is_cancelled;
+    }
+
+    public String getRequester_name() {
+        return requester_name;
+    }
+
+    public void setRequester_name(String requester_name) {
+        this.requester_name = requester_name;
     }
 }

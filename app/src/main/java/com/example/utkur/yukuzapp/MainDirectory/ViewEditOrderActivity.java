@@ -3,6 +3,7 @@ package com.example.utkur.yukuzapp.MainDirectory;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +67,7 @@ public class ViewEditOrderActivity extends AppCompatActivity implements OnMapRea
     int DIALOG_DATE = 1;
     private int id = -1;
     private int position = -1;
+    private int purpose = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,17 +76,25 @@ public class ViewEditOrderActivity extends AppCompatActivity implements OnMapRea
         ButterKnife.bind(this);
         id = getIntent().getExtras().getInt("id");
         position = getIntent().getExtras().getInt("pos");
+        purpose = getIntent().getExtras().getInt("purpose");
+
         Log.d(TAG, "onCreate: " + position);
-        order = UnpickedOrdersFragment.postOrders.get(position);
+        if (purpose == 1) {
+            try {
+                order = UnpickedOrdersFragment.postOrders.get(position);
+            } catch (Exception ex) {
+                Intent i = new Intent(this, MainActivityV2.class);
+                startActivity(i);
+                finish();
+            }
+        } else {
+            order = null;
+        }
         if (order != null) {
             getSupportActionBar().setTitle(order.getTitle());
-            float la = Float.parseFloat(order.getSource_address().split("/")[0]);
-            float ln = Float.parseFloat(order.getSource_address().split("/")[1]);
-            source = new LatLng(la, ln);
-            la = Float.parseFloat(order.getDestination_address().split("/")[0]);
-            ln = Float.parseFloat(order.getDestination_address().split("/")[1]);
-            is_cancelled_switch_btn.setChecked(!order.isIs_cancelled());
-            destination = new LatLng(la, ln);
+            source = AddressSelectorActivity.getLatLangByText(order.getSource_address());
+            is_cancelled_switch_btn.setChecked(order.isIs_cancelled());
+            destination = AddressSelectorActivity.getLatLangByText(order.getDestination_address());
             if (map_view != null) {
                 map_view.onCreate(null);
                 map_view.onResume();
@@ -128,12 +138,12 @@ public class ViewEditOrderActivity extends AppCompatActivity implements OnMapRea
         mMap = googleMap;
         try {
             mMap.addMarker(new MarkerOptions().position(source).title("from: " + AddressSelectorActivity.getAddress(source, getBaseContext())));
+            mMap.addMarker(new MarkerOptions().position(destination).title("to: " + AddressSelectorActivity.getAddress(destination, getBaseContext())));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mMap.addMarker(new MarkerOptions().position(destination).title("to"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(source, 15));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(source, 10));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(5), 1000, null);
 
         order_estimated_cost.setText(order.getPrice() + "");
         order_cost_type.setText(order.getCurrency_type());
@@ -145,19 +155,23 @@ public class ViewEditOrderActivity extends AppCompatActivity implements OnMapRea
         myYear = deadline.getYear();
         myDay = deadline.getDayOfMonth();
         myMonth = deadline.getMonthOfYear();
-
-        deadline_selector.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(DIALOG_DATE);
-            }
-        });
+        if (purpose == 1) {
+            deadline_selector.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showDialog(DIALOG_DATE);
+                }
+            });
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.view_order_menu, menu);
-        return true;
+        if (purpose == 1) {
+            getMenuInflater().inflate(R.menu.view_order_menu, menu);
+            return true;
+        }
+        return false;
     }
 
     @Override

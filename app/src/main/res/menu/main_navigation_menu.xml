@@ -28,8 +28,10 @@
                     android:id="@+id/driver_menu_field_reqs"
                     android:title="@string/picked_requests" />
             </menu>
+
         </item>
         <item
+            android:icon="@drawable/ic_settings_black_24dp"
             android:id="@+id/driver_menu_settings"
             android:title="@string/settings" />
     </group>

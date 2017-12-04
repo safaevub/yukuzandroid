@@ -82,11 +82,13 @@ public class UnpickedOrdersFragment extends Fragment {
             progressBar.setVisibility(View.VISIBLE);
             refreshList(getContext());
         } else {
+            no_post_text_alert.setVisibility(View.GONE);
             unpickedRequestsAdapter.notifyDataSetChanged();
         }
     }
 
     public void refreshList(Context c) {
+        postOrders.clear();
         Ion.with(getContext())
                 .load(Statics.URL.REST.get_unpicked_orders)
                 .setHeader("Authorization", "Token " + Personal.getToken(c))

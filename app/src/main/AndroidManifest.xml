@@ -73,7 +73,6 @@
             android:value="AIzaSyA0j7zFcmUOx2BrIEb55Wj5evRsG0Cvjdw" />
 
         <activity android:name=".ForgotPasswordActivity" />
-
         <activity
             android:name=".Authentication.LoginActivity"
             android:label="@string/title_activity_login"
@@ -90,7 +89,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainDirectory.AddressSelectorActivity"
             android:label="@string/title_activity_address_selector"
@@ -117,9 +115,10 @@
             android:label="Profile Settings"
             android:parentActivityName=".MainDirectory.MainActivityV2"
             tools:ignore="InnerclassSeparator">
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value=".MainDirectory.MainActivityV2" />-->
+
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value=".MainDirectory.MainActivityV2" /> -->
         </activity>
 
         <service
@@ -138,6 +137,16 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".MainDirectory.Pages.ViewPickedOrderActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".MainDirectory.Pages.ViewSingleOrderFromPersonActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".MainDirectory.Pages.DriversListPickedOrderActivity"
+            tools:ignore="InnerclassSeparator" />
     </application>
 
 </manifest>

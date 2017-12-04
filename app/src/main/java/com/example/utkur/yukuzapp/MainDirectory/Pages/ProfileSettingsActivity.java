@@ -95,7 +95,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                     boolean is_driver_mode = Boolean.parseBoolean(preferences.getString(Personal.DRIVER_MODE, "false"));
                     if (!is_driver_mode) {
                         final AlertDialog.Builder builder;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                             builder = new AlertDialog.Builder(ProfileSettingsActivity.this, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
                         } else {
                             builder = new AlertDialog.Builder(ProfileSettingsActivity.this);
@@ -105,7 +105,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Intent intent = new Intent(getApplicationContext(), FillDriverBlanks.class);
-                                        intent.putExtra("prupose", 2);
+                                        intent.putExtra("purpose", 2);
                                         startActivity(intent);
                                     }
                                 })

@@ -107,6 +107,7 @@ public class FillDriverBlanks extends AppCompatActivity {
                                 try {
                                     result.get("description").getAsString();
                                     preferences.edit().putString(Personal.DRIVER_MODE, String.valueOf(Personal.Settings.ON_DRIVER_MODE)).apply();
+                                    finish();
                                 } catch (Exception ex) {
                                     Toast.makeText(FillDriverBlanks.this, "Could not enable driver mode", Toast.LENGTH_SHORT).show();
                                 }
@@ -133,7 +134,7 @@ public class FillDriverBlanks extends AppCompatActivity {
         if (purpose == 1) {
             getSupportActionBar().setTitle("" + getIntent().getExtras().getString("username"));
             Ion.with(getBaseContext())
-                    .load(Statics.URL.REST.driver_get)
+                    .load(Statics.URL.REST.driver_get + "?id=2")
                     .setHeader("Authorization", "token " + token)
                     .asJsonObject()
                     .setCallback(new FutureCallback<JsonObject>() {
@@ -145,7 +146,7 @@ public class FillDriverBlanks extends AppCompatActivity {
                                 driver_cert_img_title_view.setText(result.get("image_title").getAsString());
                                 driver_description.setText(result.get("descr").getAsString());
                                 btn_upload_image.setText("View");
-                                driver_description.setTextColor(getColor(R.color.black));
+                                driver_description.setTextColor(getResources().getColor(R.color.black));
                                 driver_cert_img_title_view.setEnabled(false);
                                 driver_description.setEnabled(false);
                                 btn_upload_image.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +161,7 @@ public class FillDriverBlanks extends AppCompatActivity {
 
                                         TextView title = new TextView(getBaseContext());
                                         title.setText(result.get("image_title").getAsString());
-                                        title.setTextColor(getColor(R.color.black));
+                                        title.setTextColor(getResources().getColor(R.color.black));
                                         title.setGravity(Gravity.CENTER);
                                         title.setPadding(8, 8, 8, 8);
                                         l.addView(title);

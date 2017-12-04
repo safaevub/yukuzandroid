@@ -146,7 +146,11 @@ public class AddressSelectorActivity extends AppCompatActivity implements OnMapR
         Location myLocation = manager.getLastKnownLocation(provider);
         return new LatLng((myLocation != null ? myLocation.getLatitude() : 0), (myLocation != null ? myLocation.getLongitude() : 0));
     }
-
+    public static LatLng getLatLangByText(String string){
+        float la = Float.parseFloat(string.split("/")[0]);
+        float ln = Float.parseFloat(string.split("/")[1]);
+        return new LatLng(la, ln);
+    }
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {

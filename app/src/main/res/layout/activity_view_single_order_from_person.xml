@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Base.DialogWindowTitle.AppCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_back"
+        android:padding="8dp"
+        android:text="Person description" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_line" />
+
+    <include layout="@layout/frame_person_information" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_line" />
+
+    <TextView
+        style="@style/Base.DialogWindowTitle.AppCompat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_back"
+        android:padding="8dp"
+        android:text="Order Description" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:scrollbars="vertical|horizontal">
+
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:collapseColumns="2">
+
+                    <TableRow
+                        android:id="@+id/firstRow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="@string/title"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/single_view_order_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="@string/order_title" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/secondRow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="@string/description"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/single_view_order_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:lines="4"
+                            android:maxEms="4"
+                            android:maxLines="4"
+                            android:padding="18dip"
+                            android:singleLine="false"
+                            android:text="@string/def_description" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/thirdRow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="Offer / Weight"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/single_view_order_offer_wight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="6500 won / 250kg" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/forthRow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="@string/source_address"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/single_view_order_source_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:lines="3"
+                            android:maxEms="4"
+                            android:maxLines="4"
+                            android:padding="18dip"
+                            android:singleLine="false"
+                            android:text="@string/default_source_address" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/fifthRow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="@string/destination_address"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/single_view_order_destination_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:lines="3"
+                            android:maxEms="4"
+                            android:maxLines="4"
+                            android:padding="18dip"
+                            android:singleLine="false"
+                            android:text="@string/default_source_address" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/sixthRow"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="Vehicle Type"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/single_view_order_requested_car_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="18dip"
+                            android:text="Truck" />
+
+                    </TableRow>
+                </TableLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/ok_button_background"
+                    android:text="@string/pick_order" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/cancle_button_background"
+                    android:text="@string/ignore_order" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+</LinearLayout>
